@@ -10,8 +10,8 @@ export const config = {
     dbUsername: process.env.DB_USERNAME,
     dbPassword: process.env.DB_PASSWORD,
     dbDatabase: process.env.DB_DATABASE,
-    msLogs: process.env.MS_LOGS,
     cryptoKey: process.env.CRYPTO_KEY,
     jwtSecretKey: process.env.JWT_SECRET_KEY,
+    corsOrigin: process.env.CORS_ORIGIN,
   },
 };
