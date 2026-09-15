@@ -20,7 +20,7 @@ handlebars.registerHelper('eq', function (this: any, arg1: any, arg2: any) {
   return arg1 === arg2;
 });
 
-const readHTMLFile = (path: string) => {  
+const readHTMLFile = (path: string) => {
   return new Promise<string>((resolve, reject) => {
     fs.readFile(path, { encoding: 'utf-8' }, (err, html) => {
       if (err) {
@@ -37,6 +37,9 @@ const sendEmail = async (email: EmailInterface) => {
     service: email.service,
     port: email.port,
     secure: email.secure,
+    tls: {
+      rejectUnauthorized: email.secure,
+    },
     auth: {
       user: email.user,
       pass: email.password,
@@ -58,7 +61,7 @@ const sendEmail = async (email: EmailInterface) => {
       html: htmlToSend,
     });
   } catch (error) {
-    throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    throw new HttpException((error as any).message, HttpStatus.BAD_REQUEST);
   } finally {
     if (transporter) {
       transporter.close();
