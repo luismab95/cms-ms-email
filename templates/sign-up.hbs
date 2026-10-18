@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f6f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .content {
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff !important;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #dddddd;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{imageHeader}}" alt="{{companyName}}">
+            <h2>Invitación de Usuario</h2>
+        </div>
+        <div class="content">
+            <p>Hola <b> {{fullName}}</b>,</p>
+            <p>Te invitamos a unirte a <b>{{companyName}}</b>. Un administrador ha creado una cuenta para ti con el rol
+                de <strong>{{role}}</strong>.</p>
+            <p>Para acceder a tu cuenta, por favor utiliza la siguiente contraseña temporal:</p>
+            <p><strong>{{pwd}}</strong></p>
+            <p>Te recomendamos cambiar esta contraseña una vez que hayas iniciado sesión.</p>
+            <a href="{{link}}" class="button">Iniciar Sesión</a>
+            <p>Gracias,</p>
+            <p>El equipo de <b> {{companyName}} </b></p>
+        </div>
+        <div class="footer">
+            <p>Si tienes alguna pregunta, no dudes en <a href="mailto:{{mailFooter}}">contactarnos</a>.</p>
+            <p>&copy; {{year}} {{companyName}}. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+
+</html>

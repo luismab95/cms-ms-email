@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {{#if (eq action 'assign')}}Asignación{{else}}Desasignación{{/if}}
+        al {{#if (eq type 'site')}}Sitio{{else}}Micrositio{{/if}}
+    </title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f6f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .header h2 {
+            margin: 20px 0 10px;
+            color: #333333;
+            font-size: 22px;
+        }
+
+        .content {
+            padding: 20px;
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        .assignment {
+            margin: 20px 0;
+            padding: 20px;
+            {{#if (eq action 'assign')}}
+            background-color: #f0f7ff;
+            border: 1px solid #cce0ff;
+            {{else}}
+            background-color: #fff4f4;
+            border: 1px solid #f5cccc;
+            {{/if}}
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .assignment h3 {
+            margin: 0 0 10px;
+            {{#if (eq action 'assign')}}
+            color: #007bff;
+            {{else}}
+            color: #dc3545;
+            {{/if}}
+            font-size: 20px;
+            overflow-wrap: anywhere;
+        }
+
+        .assignment p {
+            margin: 5px 0;
+            font-size: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #dddddd;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666666;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 12px;
+            }
+
+            .content {
+                padding: 12px;
+            }
+
+            .assignment {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="header">
+            <img src="{{imageHeader}}" alt="{{companyName}}">
+            <h2>
+                Notificación de
+                {{#if (eq action 'assign')}}
+                    Asignación
+                {{else}}
+                    Desasignación
+                {{/if}}
+            </h2>
+        </div>
+
+        <div class="content">
+
+            <p>Hola <b>{{fullName}}</b>,</p>
+            <p>
+                Te informamos que
+                {{#if (eq action 'assign')}}
+                    se te ha asignado el siguiente
+                {{else}}
+                    se ha eliminado tu asignación al siguiente
+                {{/if}}
+
+                {{#if (eq type 'site')}}
+                    sitio:
+                {{else}}
+                    micrositio:
+                {{/if}}
+            </p>
+
+            <div class="assignment">
+                <h3>{{entityName}}</h3>
+                <p>
+                    {{#if (eq type 'site')}}
+                        Sitio
+                    {{else}}
+                        Micrositio
+                    {{/if}}
+                </p>
+
+                <p>
+                    {{#if (eq action 'assign')}}
+                        Tu asignación ha sido registrada correctamente.
+                    {{else}}
+                        Tu asignación ha sido eliminada del sistema.
+                    {{/if}}
+                </p>
+
+            </div>
+
+            <p>
+                {{#if (eq action 'assign')}}
+                    Ahora podrás acceder a este espacio de acuerdo con
+                    los permisos que te hayan sido otorgados.
+                {{else}}
+                    A partir de este momento, ya no tendrás acceso a este
+                    espacio mediante esta asignación.
+                {{/if}}
+            </p>
+
+            <p>
+                Si tienes alguna pregunta, comunícate con el administrador
+                de la plataforma.
+            </p>
+
+            <p>Saludos cordiales,</p>
+
+            <p>
+                El equipo de <b>{{companyName}}</b>
+            </p>
+
+        </div>
+
+        <div class="footer">
+
+            <p>
+                Si tienes alguna pregunta, no dudes en
+                <a href="mailto:{{mailFooter}}">contactarnos</a>.
+            </p>
+
+            <p>
+                &copy; {{year}} {{companyName}}.
+                Todos los derechos reservados.
+            </p>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
