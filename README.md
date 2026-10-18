@@ -1,4 +1,4 @@
-# CMS-MS-AUTH
+# CMS-MS-EMAIL
 
 <p align="center">
   <a href="https://nestjs.com/" target="_blank">
